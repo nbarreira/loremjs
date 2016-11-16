@@ -14,13 +14,14 @@ You just download and add
 
 into your website/application and run.
 
-If you want to put a lorem text inside a DIV (etc.) tag just write:
 
-    <div data-lorem="2p"></div>
+Usage:
 
-If you want a random length of lorem text within a range just write:
+    var lorem = new Lorem;
+    lorem.type = Lorem.TEXT;
+    lorem.query = '2p';
+    lorem.createLorem(document.getElementById('lorem'));
 
-    <div data-lorem="2-4p"></div>
 
 Querying
 --------
@@ -37,28 +38,15 @@ That's it.
 Dummy Images
 ------------
 
-And Lorem.js uses lorempixum.com for images for now.
-
-Usage:
-
-    <img src="" data-lorem="sports/1/Test message" width="223" height="223">
-    <img src="" data-lorem="gray" width="100" height="124">
-    <img src="" data-lorem="gray animals" width="100" height="124">
-
-And watch what happens :)
-
-Native JavaScript (without any framework)
-----------------------------------------
-
-If you want to use Lorem generator natively, (without jQuery).
-
-With Native support, you can lorem.js into your framework.
+Lorem.js uses lorempixel.com for images.
 
 Usage:
 
     var lorem = new Lorem;
-    lorem.type = Lorem.TEXT;
-    lorem.query = '2p';
+    lorem.type = Lorem.IMAGE;
+    lorem.query = 'sports';
     lorem.createLorem(document.getElementById('lorem'));
+
+
 
 Feel free to ask questions.

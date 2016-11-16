@@ -1,17 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script src="lorem.js?v4"></script>
+        <script src="lorem.js"></script>
+        <script>
+            window.onload = function() {
+                var lorem = new Lorem;
+                lorem.type = Lorem.TEXT;
+                lorem.query = '3w'; // 3 words
+                lorem.createLorem(document.getElementById('lorem'));
+
+                var loremimg = new Lorem;
+                loremimg.type = Lorem.IMAGE;
+                loremimg.query = 'people'; // More categories in http://lorempixel.com/
+                loremimg.createLorem(document.getElementById('loremimg'));
+
+            };
+        </script>
     </head>
     <body>
         <h1>Lorem.js Test</h1>
-        
-        <div data-lorem="10w"></div>
-        <div data-lorem="1-10w"></div>
-        <img src="" data-lorem="sports/1/Test deneme 123" width="223" height="223">
-        <img src="" data-lorem="gray" width="100" height="124">
-        <img src="" data-lorem="gray city" width="100" height="124">
-        <img src="" data-lorem="nature/Test text" width="100" height="124">
+        <span id="lorem"></span>
+        <img id="loremimg" src="" width="100" height="100">
     </body>
 </html>

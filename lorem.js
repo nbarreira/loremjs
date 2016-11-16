@@ -71,14 +71,14 @@ var Lorem;
 
         var lorem = new Array;
         var count;
-        
+
         if (/\d+-\d+[psw]/.test(this.query)){
             var range = this.query.replace(/[a-z]/,'').split("-");
             count = Math.floor(Math.random() * parseInt(range[1])) + parseInt(range[0]);
         }else{
-            count = parseInt(this.query); 
+            count = parseInt(this.query);
         }
-        
+
         if (/\d+p/.test(this.query)) {
             var type = Lorem.TYPE.PARAGRAPH;
         }
@@ -110,32 +110,12 @@ var Lorem;
                     path += '/' + element.getAttribute('height');
 
                 path += '/' + options.join(' ').replace(/(^\s+|\s+$)/, '');
-                element.src = 'http://lorempixum.com'+path.replace(/\/\//, '/');
+                element.src = 'http://lorempixel.com'+path.replace(/\/\//, '/');
             }
         }
 
         if (element == null)
             return lorem;
     };
-
-    //Register as jQuery
-    if (typeof jQuery != 'undefined') {
-        (function($) {
-            $.fn.lorem = function() {
-                $(this).each(function() {
-                    var lorem = new Lorem;
-                    lorem.type = $(this).is('img') ? Lorem.IMAGE : Lorem.TEXT;
-                    //data-lorem can be taken with data function (thanks to http://forrst.com/people/webking)
-                    lorem.query = $(this).data('lorem');
-                    lorem.createLorem(this);
-                })
-            };
-
-            //If developer run this javascript, then we can run the lorem.js
-            $(document).ready(function() {
-                $('[data-lorem]').lorem();
-            });
-        })(jQuery);
-    }
 
 })();
